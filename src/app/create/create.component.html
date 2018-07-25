@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Create</h1>
+<div mat-dialog-content>
+  <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
+    <div fxLayout='column wrap' fxLayoutGap='10px'>
+      <mat-form-field>
+        <input type="text" matInput formControlName="name" placeholder="Name">
+      </mat-form-field>
+      <mat-form-field>
+        <input type="text" matInput formControlName="job" placeholder="Job">
+      </mat-form-field>
+      <button type="submit" mat-raised-button>Create</button>
+      <mat-card-subtitle>Response: </mat-card-subtitle>
+      <mat-form-field>
+        <textarea type="text" matInput disabled [value]="response"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+</div>

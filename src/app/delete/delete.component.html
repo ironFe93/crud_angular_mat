@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>Delete</h1>
+<div mat-dialog-content>
+  <div fxLayout='column' fxLayoutGap='10px'>
+    <form>
+      <mat-form-field>
+        <input matInput type='text' #id (keyup.enter)="delete(id.value)" placeholder='ID'>
+        <mat-hint>Press Enter to delete</mat-hint>
+      </mat-form-field>
+      
+      <label>Status Code: {{status_code || ''}}</label>
+
+    </form>
+  </div>
+
+</div>
