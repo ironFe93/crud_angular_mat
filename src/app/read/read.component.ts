@@ -10,6 +10,7 @@ import { CrudService } from '../crud.service';
 export class ReadComponent implements OnInit {
 
   user: User;
+  error: string;
 
   constructor(private crudService: CrudService) { }
 
@@ -17,7 +18,11 @@ export class ReadComponent implements OnInit {
   }
 
   read(id: number) {
-    this.crudService.read(id).subscribe(x => this.user = x.data);
+    if (id) {
+      this.crudService.read(id).subscribe(x => this.user = x.data);
+    } else {
+      this.error = 'invalid input';
+    }
   }
 
 }

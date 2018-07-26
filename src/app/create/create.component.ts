@@ -19,14 +19,18 @@ export class CreateComponent {
 
   createForm() {
     this.createUserForm = this.fb.group({
-      name: ['', Validators.required],
-      job: ['', Validators.required]
+      name: ['', [Validators.required, Validators.minLength(1)]],
+      job: ['']
     });
   }
 
   onSubmit()  {
-    const user = this.createUserForm.value;
-    this.crudService.create(user).subscribe( x => this.response = JSON.stringify(x));
+    if (this.createUserForm.valid) {
+      const user = this.createUserForm.value;
+      this.crudService.create(user).subscribe( x => this.response = JSON.stringify(x));
+    } else {
+      this.response = 'invalid input';
+    }
   }
 
 

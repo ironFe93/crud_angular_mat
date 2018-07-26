@@ -3,10 +3,11 @@
   <div fxLayout='column' fxLayoutGap='10px'>
     <form>
       <mat-form-field>
-        <input matInput type='text' #id (keyup.enter)="read(id.value)" placeholder='ID'>
+        <input matInput type='number' #id (keyup.enter)="read(id.value)" placeholder='ID' required>
         <mat-hint>Press Enter to search by ID</mat-hint>
       </mat-form-field>
     </form>
+    <label ng-if="error?">{{error}}</label>
     <label>ID: {{user?.id || ''}}</label>
     <label>First Name: {{user?.first_name || ''}}</label>
     <label>Last Name: {{user?.last_name || ''}}</label>

@@ -3,7 +3,7 @@
   <form [formGroup]="createUserForm" (ngSubmit)="onSubmit()">
     <div fxLayout='column wrap' fxLayoutGap='10px'>
       <mat-form-field>
-        <input type="text" matInput formControlName="name" placeholder="Name">
+        <input type="text" matInput formControlName="name" placeholder="Name" required>
       </mat-form-field>
       <mat-form-field>
         <input type="text" matInput formControlName="job" placeholder="Job">

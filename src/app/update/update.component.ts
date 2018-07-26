@@ -17,15 +17,20 @@ export class UpdateComponent {
 
   createForm() {
     this.updateUserForm = this.fb.group({
-      id: ['', Validators.required],
-      name: ['', Validators.required],
-      job: ['', Validators.required]
+      id: ['', [Validators.required, Validators.minLength(1)]],
+      name: ['', [Validators.required, Validators.minLength(1)]],
+      job: ['', [Validators.required, Validators.minLength(1)]]
     });
   }
 
   onSubmit()  {
-    const user = this.updateUserForm.value;
-    this.crudService.create(user).subscribe( x => this.response = JSON.stringify(x));
+    if (this.updateUserForm.valid) {
+      const user = this.updateUserForm.value;
+      this.crudService.create(user).subscribe( x => this.response = JSON.stringify(x));
+    } else {
+      this.response = 'Form invalid';
+    }
+
   }
 
 

@@ -8,7 +8,7 @@ import { CrudService } from '../crud.service';
 })
 export class DeleteComponent implements OnInit {
 
-  status_code: number;
+  status_code: any;
 
   constructor(private crudService: CrudService) { }
 
@@ -16,7 +16,11 @@ export class DeleteComponent implements OnInit {
   }
 
   delete(id: number) {
-    this.crudService.delete(id).subscribe(x => this.status_code = x.status);
+    if (id) {
+      this.crudService.delete(id).subscribe(x => this.status_code = x.status);
+    } else {
+      this.status_code = 'Invalid input';
+    }
   }
 
 }
