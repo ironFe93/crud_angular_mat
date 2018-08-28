@@ -1,6 +1,8 @@
 # SimpleCrud
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+A Live version of this repo is deployed at https://ironfe93.github.io/crud_angular_mat/
+This project is a demo showcasing use of Angular 6, Angular Material and REST communication via Services. API communicates with https://reqres.in 
 
 ## Development server
 
